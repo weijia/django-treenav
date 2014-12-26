@@ -1,6 +1,12 @@
 django-treenav
 ==============
 
+.. sidebar:: Build Status
+
+   :master: |master-status|
+   :develop: |develop-status|
+   :coverage: |coverage|
+
 An extensible, hierarchical, and pluggable navigation system for Django sites.
 
 *django-treenav* was designed from the start to live independent of a CMS
@@ -14,6 +20,21 @@ integrates seamlessly with treenav and can be used together to create a flexible
 CMS product.
 
 For complete documentation checkout, `<http://django-treenav.readthedocs.org>`_
+
+.. |master-status| image::
+    https://travis-ci.org/caktus/django-treenav.svg?branch=master
+    :target: https://travis-ci.org/caktus/django-treenav
+    :alt: Master Build Status
+
+.. |develop-status| image::
+    https://travis-ci.org/caktus/django-treenav.svg?branch=develop
+    :target: https://travis-ci.org/caktus/django-treenav
+    :alt: Develop Build Status
+
+.. |coverage| image::
+    https://coveralls.io/repos/caktus/django-treenav/badge.png?branch=develop
+    :target: https://coveralls.io/r/caktus/django-treenav
+
 
 Features
 --------
@@ -29,7 +50,7 @@ Features
 
 Requirements
 ------------
-- `django <https://github.com/django/django/>`_ >= 1.3
+- `django <https://github.com/django/django/>`_ >= 1.4.2
 - `django-mptt <http://github.com/django-mptt/django-mptt/>`_ >= 0.5.2
 
 Using the demo
@@ -81,5 +102,4 @@ Installation
 
 
 Development sponsored by `Caktus Consulting Group, LLC
-<http://www.caktusgroup.com/services>`_.
-
+<http://www.caktusgroup.com/services/>`_.

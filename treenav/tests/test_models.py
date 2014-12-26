@@ -20,7 +20,7 @@ class TreeOrder(TransactionTestCase):
             )
         primary_nav.save()
         child = {}
-        for i in [2,4,5,1,0,8]:
+        for i in [2, 4, 5, 1, 0, 8]:
             child[i] = MenuItem(
                 parent=primary_nav,
                 label=str(i),
@@ -32,4 +32,4 @@ class TreeOrder(TransactionTestCase):
         order = MenuItem.objects.exclude(
             slug='primary-nav'
             ).values_list('order', flat=True)
-        self.assertEquals(list(order), sorted(order))
+        self.assertEqual(list(order), sorted(order))

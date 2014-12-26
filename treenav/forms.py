@@ -1,6 +1,5 @@
 from django import forms
 from django.core.urlresolvers import reverse, NoReverseMatch
-from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.validators import URLValidator
 
@@ -37,17 +36,17 @@ class MenuItemFormMixin(object):
         if content_type and object_id:
             try:
                 obj = content_type.get_object_for_this_type(pk=object_id)
-            except ObjectDoesNotExist, e:
+            except ObjectDoesNotExist as e:
                 raise forms.ValidationError(str(e))
             try:
                 obj.get_absolute_url()
-            except AttributeError, e:
+            except AttributeError as e:
                 raise forms.ValidationError(str(e))
 
         if 'is_enabled' in self.cleaned_data and \
-          self.cleaned_data['is_enabled'] and \
-          'link' in self.cleaned_data and \
-          self.cleaned_data['link'].startswith('^'):
+           self.cleaned_data['is_enabled'] and \
+           'link' in self.cleaned_data and \
+           self.cleaned_data['link'].startswith('^'):
             raise forms.ValidationError('Menu items with regular expression '
                                         'URLs must be disabled.')
         return self.cleaned_data
@@ -70,6 +69,7 @@ class GenericInlineMenuItemForm(forms.ModelForm):
         queryset=MenuItem.tree.all(),
         required=False
     )
+
     class Meta:
         model = MenuItem
         fields = ('parent', 'label', 'slug', 'order', 'is_enabled')
